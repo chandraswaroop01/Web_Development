@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Leave Request</title>
+</head>
+<body>
+  <h1>Employee Leave Request Form</h1>
+  <p>Please complete the form below to submit your leave request. Ensure all required fields are filled accurately.</p>
+
+  <!-- Example Leave Categories Table -->
+  <h2>Leave Categories</h2>
+  <table border="1" cellpadding="5">
+    <tr><th>Category</th><th>Description</th></tr>
+    <tr><td>Casual Leave</td><td>Short-term personal leave</td></tr>
+    <tr><td>Sick Leave</td><td>Medical or health-related absence</td></tr>
+    <tr><td>Earned Leave</td><td>Accrued leave for planned vacations</td></tr>
+    <tr><td>Work From Home</td><td>Remote work arrangement</td></tr>
+    <tr><td>Other</td><td>Special circumstances not covered above</td></tr>
+  </table>
+
+  <!-- Leave Request Form -->
+  <form action="/submit-leave" method="post">
+    <!-- Employee Details -->
+    <label for="name">Employee Name:</label>
+    <input type="text" id="name" name="employee_name" required minlength="2" maxlength="50"><br><br>
+
+    <label for="empid">Employee ID:</label>
+    <input type="text" id="empid" name="employee_id" required pattern="[A-Z0-9]{5,10}" title="5-10 characters, letters and numbers only"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="employee_email" required><br><br>
+
+    <label for="dept">Department:</label>
+    <select id="dept" name="department" required>
+      <option value="">--Select Department--</option>
+      <option value="hr">Human Resources</option>
+      <option value="finance">Finance</option>
+      <option value="it">Information Technology</option>
+      <option value="sales">Sales</option>
+      <option value="marketing">Marketing</option>
+      <option value="operations">Operations</option>
+    </select><br><br>
+
+    <!-- Leave Type -->
+    <label>Leave Type:</label><br>
+    <input type="radio" id="casual" name="leave_type" value="casual" required>
+    <label for="casual">Casual Leave</label><br>
+    <input type="radio" id="sick" name="leave_type" value="sick">
+    <label for="sick">Sick Leave</label><br>
+    <input type="radio" id="earned" name="leave_type" value="earned">
+    <label for="earned">Earned Leave</label><br>
+    <input type="radio" id="wfh" name="leave_type" value="wfh">
+    <label for="wfh">Work From Home</label><br>
+    <input type="radio" id="other" name="leave_type" value="other">
+    <label for="other">Other</label><br><br>
+
+    <!-- Leave Dates -->
+    <label for="start">Start Date:</label>
+    <input type="date" id="start" name="start_date" required><br><br>
+
+    <label for="end">End Date:</label>
+    <input type="date" id="end" name="end_date" required><br><br>
+
+    <!-- Leave Days -->
+    <label for="days">Number of Leave Days:</label>
+    <input type="number" id="days" name="leave_days" min="1" max="30" step="1" required><br><br>
+
+    <!-- Reachability -->
+    <label>Reachable During Leave:</label><br>
+    <input type="radio" id="reachable_yes" name="reachable" value="yes" required>
+    <label for="reachable_yes">Yes</label><br>
+    <input type="radio" id="reachable_no" name="reachable" value="no">
+    <label for="reachable_no">No</label><br><br>
+
+    <!-- Reason -->
+    <label for="reason">Reason for Leave:</label><br>
+    <textarea id="reason" name="leave_reason" rows="4" cols="50" required minlength="10" maxlength="300"></textarea><br><br>
+
+    <!-- Alternate Contact -->
+    <label for="alt_contact">Alternate Contact Number:</label>
+    <input type="tel" id="alt_contact" name="alternate_contact" pattern="[0-9]{10}" title="Enter 10-digit number"><br><br>
+
+    <!-- Supporting Document -->
+    <label for="document">Supporting Document (optional):</label>
+    <input type="file" id="document" name="supporting_document" accept=".pdf,.doc,.docx,.jpg,.png"><br><br>
+
+    <!-- Declaration -->
+    <input type="checkbox" id="declare" name="declaration" required>
+    <label for="declare">I declare that the information provided is true and accurate.</label><br><br>
+
+    <!-- Controls -->
+    <input type="submit" value="Submit Request">
+    <input type="reset" value="Reset Form">
+  </form>
+</body>
+</html>
+
