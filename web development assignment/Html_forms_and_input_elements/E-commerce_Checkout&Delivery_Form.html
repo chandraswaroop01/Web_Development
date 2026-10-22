@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Commerce Checkout</title>
+</head>
+<body>
+  <h1>Checkout Page</h1>
+  <p>Thank you for shopping with us! Please review your cart and provide delivery and payment details to place your order.</p>
+
+  <!-- Store Image -->
+  <img src="https://via.placeholder.com/400x200" alt="Store Banner">
+
+  <!-- Selected Products Table -->
+  <h2>Your Cart</h2>
+  <table border="1" cellpadding="5">
+    <tr><th>Product</th><th>Quantity</th><th>Unit Price</th><th>Total</th></tr>
+    <tr><td>Smartphone</td><td>1</td><td>$500</td><td>$500</td></tr>
+    <tr><td>Headphones</td><td>2</td><td>$50</td><td>$100</td></tr>
+    <tr><td>Power Bank</td><td>1</td><td>$30</td><td>$30</td></tr>
+    <tr><td colspan="3"><strong>Grand Total</strong></td><td><strong>$630</strong></td></tr>
+  </table>
+
+  <!-- Checkout Form -->
+  <form action="/submit-order" method="post">
+    <!-- Customer Information -->
+    <h3>Customer Information</h3>
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="customer_name" required minlength="2" maxlength="50" placeholder="Enter your full name" autocomplete="name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="customer_email" required placeholder="Enter your email" autocomplete="email"><br><br>
+
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile" name="customer_mobile" required pattern="[0-9]{10}" title="Enter 10-digit number" placeholder="10-digit mobile number" autocomplete="tel"><br><br>
+
+    <!-- Delivery Information -->
+    <h3>Delivery Address</h3>
+    <label for="house">House/Street:</label>
+    <input type="text" id="house" name="house_street" required><br><br>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required><br><br>
+
+    <label for="state">State:</label>
+    <select id="state" name="state" required>
+      <option value="">--Select State--</option>
+      <option value="up">Uttar Pradesh</option>
+      <option value="mh">Maharashtra</option>
+      <option value="dl">Delhi</option>
+      <option value="ka">Karnataka</option>
+      <option value="tn">Tamil Nadu</option>
+      <option value="wb">West Bengal</option>
+    </select><br><br>
+
+    <label for="postal">Postal Code:</label>
+    <input type="text" id="postal" name="postal_code" required pattern="[0-9]{6}" title="Enter 6-digit postal code" placeholder="e.g., 110001"><br><br>
+
+    <label for="country">Country:</label>
+    <select id="country" name="country" required>
+      <option value="">--Select Country--</option>
+      <option value="india">India</option>
+      <option value="usa">United States</option>
+      <option value="uk">United Kingdom</option>
+      <option value="canada">Canada</option>
+      <option value="australia">Australia</option>
+      <option value="germany">Germany</option>
+    </select><br><br>
+
+    <!-- Delivery Choice -->
+    <h3>Delivery Options</h3>
+    <input type="radio" id="standard" name="delivery_type" value="standard" required>
+    <label for="standard">Standard</label><br>
+    <input type="radio" id="express" name="delivery_type" value="express">
+    <label for="express">Express</label><br>
+    <input type="radio" id="same_day" name="delivery_type" value="same_day">
+    <label for="same_day">Same Day</label><br><br>
+
+    <!-- Payment Choice -->
+    <h3>Payment Options</h3>
+    <input type="radio" id="card" name="payment_type" value="card" required>
+    <label for="card">Card</label><br>
+    <input type="radio" id="cod" name="payment_type" value="cod">
+    <label for="cod">Cash on Delivery</label><br>
+    <input type="radio" id="upi" name="payment_type" value="upi">
+    <label for="upi">UPI/Online Payment</label><br><br>
+
+    <!-- Card Payment Fields -->
+    <div>
+      <label for="card_name">Card Holder Name:</label>
+      <input type="text" id="card_name" name="card_name"><br><br>
+
+      <label for="card_number">Card Number:</label>
+      <input type="text" id="card_number" name="card_number" pattern="[0-9]{16}" title="Enter 16-digit card number"><br><br>
+
+      <label for="expiry">Expiry Date:</label>
+      <input type="month" id="expiry" name="expiry_date"><br><br>
+
+      <label for="cvv">Security Code (CVV):</label>
